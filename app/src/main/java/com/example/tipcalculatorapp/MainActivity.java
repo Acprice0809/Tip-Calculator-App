@@ -3,7 +3,9 @@ package com.example.tipcalculatorapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     EditText partyNumInput;
     Button convertButton;
     EditText totalCostOutput;
+    EditText tipAmountOutput;
+    EditText amountPerPerson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,19 +45,26 @@ public class MainActivity extends AppCompatActivity {
         partyNumInput = findViewById(R.id.partyNumInput);
         convertButton = findViewById(R.id.convertButton);
         totalCostOutput = findViewById(R.id.totalCostOutput);
+        tipAmountOutput = findViewById(R.id.tipAmountOutput);
+        amountPerPerson = findViewById(R.id.amountPerPerson);
 
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double value = Double.parseDouble(purchaseInputBox.getText().toString());
                 double s = Double.parseDouble(tipPercentageInput.getText().toString());
-                double num = Double.parseDouble(partyNumInput.getText().toString());
+                double v = Double.parseDouble(partyNumInput.getText().toString());
+                double u = (s/100)*value;
+                double w = (value+u)/v;
+
                 if (splitCostButton.isChecked()) {
-                    value = (value*(s+1))/num;
+                    value = (value+u);
                 } else if (dontSplitCostButton.isChecked()) {
-                    value = value*(s+1);
+                    value = value*((s/100)+1);
                 }
-                totalCostOutput.setText(String.format("%.3f",value));
+                totalCostOutput.setText(String.format("%.2f",value));
+                tipAmountOutput.setText(String.format("%.2f",u));
+                amountPerPerson.setText(String.format("%.2f",w));
             }
         });
 
@@ -62,12 +73,44 @@ public class MainActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 partyNumInput.setText("");
                 if (i==R.id.splitCostButton) {
-                    partyNumInput.setHint("Enter num of party")
+                    partyNumInput.setHint("Enter num of party");
                 } else if (i == R.id.dontSplitCostButton) {
                     partyNumInput.setText("N/A");
                 }
             }
         });
+
+        tipPercentageInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_DONE) {
+                    int t = Integer.parseInt(tipPercentageInput.getText().toString());
+                    seekBar.setProgress(t);
+                }
+                return false;
+            }
+        });
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                tipPercentageInput.setText(i + "");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
+
+
 
 
     }

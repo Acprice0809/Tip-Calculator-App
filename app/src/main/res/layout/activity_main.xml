@@ -36,7 +36,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Enter amount here"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:minHeight="48dp"
         android:text=""
         android:textSize="12sp"
@@ -53,12 +53,14 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:hint="Enter percentage here"
-        android:inputType="textPersonName"
+        android:imeOptions="actionDone"
+        android:inputType="number"
         android:text=""
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tipPercentageText"
-        app:layout_constraintTop_toBottomOf="@+id/purchaseInputBox" />
+        app:layout_constraintTop_toBottomOf="@+id/purchaseInputBox"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/tipPercentageText"
@@ -148,22 +150,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        android:ems="4"
+        android:inputType="number"
         android:minHeight="48dp"
         android:text=""
-        android:textSize="6sp"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/optionalText"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <TextView
         android:id="@+id/totalCostText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="5dp"
         android:text="Total Cost ="
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -181,18 +184,68 @@
 
     <EditText
         android:id="@+id/totalCostOutput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="80dp"
-        android:ems="10"
+        android:layout_width="63dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="125dp"
+        android:ems="5"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toEndOf="@+id/totalCostText"
         app:layout_constraintTop_toBottomOf="@+id/convertButton"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="94dp"
+        android:layout_marginTop="18dp"
+        android:text="Tip Amount ="
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/totalCostText" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="25dp"
+        android:text="Amount per person ="
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/tipAmountOutput"
+        android:layout_width="78dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="100dp"
+        android:ems="4"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.631"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/totalCostOutput"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+
+    <EditText
+        android:id="@+id/amountPerPerson"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="55dp"
+        android:ems="5"
+        android:inputType="textPersonName"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tipAmountOutput"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
