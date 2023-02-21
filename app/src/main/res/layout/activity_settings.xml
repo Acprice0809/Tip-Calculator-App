@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <TextView
+        android:id="@+id/settingsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/settings"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/setTipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="72dp"
+        android:text="@string/set_default_tip_percent"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle" />
+
+    <EditText
+        android:id="@+id/defaultPercentage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-74dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="24dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toEndOf="@+id/setTipText"
+        app:layout_constraintTop_toBottomOf="@+id/settingsTitle"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/defaultParty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="-55dp"
+        android:layout_marginTop="153dp"
+        android:layout_marginEnd="5dp"
+        android:ems="3"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/numOfPartyText"
+        app:layout_constraintTop_toBottomOf="@+id/splitButton"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/numOfPartyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="150dp"
+        android:text="@string/set_default_number_of_party"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splitButton" />
+
+
+    <CheckBox
+        android:id="@+id/splitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:checked="true"
+        android:text="@string/split_the_bill_by_default"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setTipText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

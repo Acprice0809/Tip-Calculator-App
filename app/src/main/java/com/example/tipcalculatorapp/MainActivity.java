@@ -2,6 +2,8 @@ package com.example.tipcalculatorapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton dontSplitCostButton;
     EditText partyNumInput;
     Button convertButton;
+    Button settingsButton;
     EditText totalCostOutput;
     EditText tipAmountOutput;
     EditText amountPerPerson;
@@ -47,24 +50,32 @@ public class MainActivity extends AppCompatActivity {
         totalCostOutput = findViewById(R.id.totalCostOutput);
         tipAmountOutput = findViewById(R.id.tipAmountOutput);
         amountPerPerson = findViewById(R.id.amountPerPerson);
+        settingsButton = findViewById(R.id.settingsButton);
 
+        settingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), SettingsActivity.class);
+                startActivity(i);
+            }
+        });
         convertButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 double value = Double.parseDouble(purchaseInputBox.getText().toString());
                 double s = Double.parseDouble(tipPercentageInput.getText().toString());
                 double v = Double.parseDouble(partyNumInput.getText().toString());
-                double u = (s/100)*value;
-                double w = (value+u)/v;
+                double u = (s / 100) * value;
+                double w = (value + u) / v;
 
                 if (splitCostButton.isChecked()) {
-                    value = (value+u);
+                    value = (value + u);
                 } else if (dontSplitCostButton.isChecked()) {
-                    value = value*((s/100)+1);
+                    value = value * ((s / 100) + 1);
                 }
-                totalCostOutput.setText(String.format("%.2f",value));
-                tipAmountOutput.setText(String.format("%.2f",u));
-                amountPerPerson.setText(String.format("%.2f",w));
+                totalCostOutput.setText(String.format("%.2f", value));
+                tipAmountOutput.setText(String.format("%.2f", u));
+                amountPerPerson.setText(String.format("%.2f", w));
             }
         });
 
@@ -72,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
                 partyNumInput.setText("");
-                if (i==R.id.splitCostButton) {
+                if (i == R.id.splitCostButton) {
                     partyNumInput.setHint("Enter num of party");
                 } else if (i == R.id.dontSplitCostButton) {
                     partyNumInput.setText("N/A");
@@ -107,11 +118,37 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-
-
-
-
-
     }
+        private void updatetip() {
+            SharedPreferences sp = getSharedPreferences("shared", MODE_PRIVATE);
+            tipPercentageInput.setText(sp.getInt("defaultPercentage", 15)+"");
+            seekBar.setProgress(Integer.parseInt(sp.getInt("defaultPercentage",15)+""));
+        }
+
+        private void updateParty() {
+            SharedPreferences sp = getSharedPreferences("shared", MODE_PRIVATE);
+            partyNumInput.setText(sp.getInt("defaultParty", 4)+"");
+        }
+
+        private void updateSplit() {
+            SharedPreferences sp = getSharedPreferences("shared", MODE_PRIVATE);
+            boolean splitBill = sp.getBoolean("splitButton",true);
+            if(splitBill) {
+                splitCostButton.setChecked(true);
+            } else dontSplitCostButton.setChecked(true);
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            updatetip();
+            updateParty();
+            updateSplit();
+        }
+
+
+
+
+
+
 }

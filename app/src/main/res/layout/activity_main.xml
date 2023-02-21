@@ -10,8 +10,8 @@
         android:id="@+id/appTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Tip Calculator"
+        android:layout_marginTop="25dp"
+        android:text="@string/tip_calculator"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="50dp"
-        android:text="Enter your Purchase Price ="
+        android:text="@string/enter_your_purchase_price"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appTitle" />
@@ -35,7 +35,7 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Enter amount here"
+        android:hint="@string/enter_amount_here"
         android:inputType="number"
         android:minHeight="48dp"
         android:text=""
@@ -43,7 +43,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/purchasePriceText"
-        app:layout_constraintTop_toBottomOf="@+id/appTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/appTitle"
+        tools:ignore="TextContrastCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/tipPercentageInput"
@@ -52,7 +54,7 @@
         android:layout_marginTop="26dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Enter percentage here"
+        android:hint="@string/enter_percentage_here"
         android:imeOptions="actionDone"
         android:inputType="number"
         android:text=""
@@ -60,7 +62,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tipPercentageText"
         app:layout_constraintTop_toBottomOf="@+id/purchaseInputBox"
-        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/tipPercentageText"
@@ -68,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="38dp"
-        android:text="Enter tip percentage ="
+        android:text="@string/enter_tip_percentage"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/purchasePriceText" />
@@ -89,7 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Scroll to set percentage"
+        android:text="@string/scroll_to_set_percentage"
         app:layout_constraintBottom_toTopOf="@+id/seekBar"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -113,22 +116,22 @@
             android:id="@+id/splitCostButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Yes, split the cost." />
+            android:text="@string/yes_split_the_cost" />
 
         <RadioButton
             android:id="@+id/dontSplitCostButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="No, don't split the cost." />
+            android:text="@string/no_don_t_split_the_cost" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/radioGroupTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Would you like to split the cost?"
+        android:layout_marginTop="15dp"
+        android:text="@string/would_you_like_to_split_the_cost"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBarLabel" />
@@ -139,7 +142,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
-        android:text="If you clicked yes, Enter the amount of members in your party ="
+        android:text="@string/if_you_clicked_yes_enter_the_amount_of_members_in_your_party"
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
@@ -159,7 +162,8 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/optionalText"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="SpeakableTextPresentCheck"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/totalCostText"
@@ -167,7 +171,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="5dp"
-        android:text="Total Cost ="
+        android:text="@string/total_cost"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/convertButton" />
@@ -176,8 +180,8 @@
         android:id="@+id/convertButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:text="Press To Convert"
+        android:layout_marginTop="15dp"
+        android:text="@string/press_to_convert"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/optionalText" />
@@ -196,7 +200,8 @@
         app:layout_constraintHorizontal_bias="0.882"
         app:layout_constraintStart_toEndOf="@+id/totalCostText"
         app:layout_constraintTop_toBottomOf="@+id/convertButton"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
 
     <TextView
         android:id="@+id/textView"
@@ -204,7 +209,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="94dp"
         android:layout_marginTop="18dp"
-        android:text="Tip Amount ="
+        android:text="@string/tip_amount"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/totalCostText" />
@@ -215,7 +220,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="96dp"
         android:layout_marginTop="25dp"
-        android:text="Amount per person ="
+        android:text="@string/amount_per_person"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -233,7 +238,8 @@
         app:layout_constraintHorizontal_bias="0.631"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/totalCostOutput"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/amountPerPerson"
@@ -246,6 +252,17 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tipAmountOutput"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+        android:importantForAutofill="no" />
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/settingsbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

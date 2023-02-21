@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">Tip Calculator App</string>
+    <string name="tip_calculator">Tip Calculator</string>
+    <string name="settings">Settings</string>
+    <string name="set_default_tip_percent">Set default tip percent:</string>
+    <string name="split_the_bill_by_default">Split the bill by default?</string>
+    <string name="set_default_number_of_party">Set default Number of Party:</string>
+    <string name="enter_your_purchase_price">Enter your Purchase Price =</string>
+    <string name="total_cost">Total Cost =</string>
+    <string name="press_to_convert">Press To Convert</string>
+    <string name="amount_per_person">Amount per person =</string>
+    <string name="tip_amount">Tip Amount =</string>
+    <string name="no_don_t_split_the_cost">No, don\'t split the cost.</string>
+    <string name="enter_amount_here">Enter amount here</string>
+    <string name="enter_percentage_here">Enter percentage here</string>
+    <string name="settingsbutton">Settings</string>
+    <string name="enter_tip_percentage">Enter tip percentage =</string>
+    <string name="if_you_clicked_yes_enter_the_amount_of_members_in_your_party">If you clicked yes, Enter the amount of members in your party =</string>
+    <string name="scroll_to_set_percentage">Scroll to set percentage</string>
+    <string name="would_you_like_to_split_the_cost">Would you like to split the cost?</string>
+    <string name="yes_split_the_cost">Yes, split the cost.</string>
 </resources>
